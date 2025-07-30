@@ -1,9 +1,468 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --brand-indigo: #4f46e5;
+  --brand-green: #10b981;
+  --brand-blue: #3b82f6;
+  --brand-cyan: #06b6d4;
+  
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #06b6d4;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--brand-indigo), var(--brand-blue));
+  --gradient-success: linear-gradient(135deg, var(--brand-green), #059669);
+  --gradient-brand: linear-gradient(45deg, var(--brand-indigo), var(--brand-green), var(--brand-blue), var(--brand-cyan));
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+
+/* ### Typography Scale */
+/* Font Families */
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+/* Font Weights */
+--font-light: 300;
+--font-normal: 400;
+--font-medium: 500;
+--font-semibold: 600;
+--font-bold: 700;
+--font-extrabold: 800;
+--font-black: 900;
+
+/* Font Sizes */
+--text-xs: 0.75rem;     /* 12px */
+--text-sm: 0.875rem;    /* 14px */
+--text-base: 1rem;      /* 16px */
+--text-lg: 1.125rem;    /* 18px */
+--text-xl: 1.25rem;     /* 20px */
+--text-2xl: 1.5rem;     /* 24px */
+--text-3xl: 1.875rem;   /* 30px */
+--text-4xl: 2.25rem;    /* 36px */
+--text-5xl: 3rem;       /* 48px */
+
+/* ### Core Brand Gradients */
+
+/* #### **Signature Brand Gradient** - The "Digital Flow" */
+background: linear-gradient(45deg, #4f46e5, #059669, #3b82f6, #06b6d4);
+/* Indigo → Green → Blue → Cyan */
+
+/* #### **Power Gradient** - The "Success Wave" */
+background: linear-gradient(135deg, #f59e0b, #10b981, #4f46e5);
+/* Gold → Green → Indigo */
+
+
+/* #### **Energy Gradient** - The "Live Tech" */
+background: linear-gradient(90deg, #ef4444, #f97316, #eab308);
+/* Red → Orange → Yellow */
+
+/* ### Dark Theme Base (Spotify-Inspired) */
+/* Primary Backgrounds */
+--bg-primary: #030712;      /* Pure black foundation */
+--bg-secondary: #0f172a;    /* Slate-950 */
+--bg-tertiary: #1e293b;     /* Slate-800 */
+
+/* Glass Morphism Overlays */
+--glass-dark: rgba(15, 23, 42, 0.95);
+--glass-medium: rgba(30, 41, 59, 0.90);
+--glass-light: rgba(51, 65, 85, 0.80);
+
+
+/* ### Text Hierarchy */
+/* Text Colors */
+--text-primary: #ffffff;     /* Pure white for headers */
+--text-secondary: #e2e8f0;   /* Slate-200 for body text */
+--text-tertiary: #94a3b8;    /* Slate-400 for meta info */
+--text-muted: #64748b;       /* Slate-500 for disabled */
+
+
+/* ### Core Brand Colors */
+
+/* #### **Indigo (Primary Innovation)** */
+--indigo-50: #eef2ff;
+--indigo-500: #4f46e5;       /* Primary brand indigo */
+--indigo-600: #4338ca;
+--indigo-900: #312e81;
+
+/* Gradients */
+--indigo-gradient: linear-gradient(135deg, #4f46e5, #4338ca);
+--indigo-glow: rgba(79, 70, 229, 0.25);
+
+/* **Usage:** Primary buttons, navigation active states, tech features */
+
+/* #### **Emerald/Green (Growth & Success)** */
+--emerald-50: #ecfdf5;
+--emerald-500: #10b981;      /* Primary green */
+--emerald-600: #059669;
+--green-500: #22c55e;
+--green-600: #16a34a;
+
+/* Gradients */
+--green-gradient: linear-gradient(135deg, #10b981, #059669);
+--green-glow: rgba(16, 185, 129, 0.25);
+
+/* **Usage:** Success states, growth metrics, money/coins, positive actions */
+
+/* #### **Blue & Cyan (Trust & Technology)** */
+--blue-500: #3b82f6;
+--blue-600: #2563eb;
+--cyan-500: #06b6d4;
+--cyan-600: #0891b2;
+
+/* Gradients */
+--blue-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+--cyan-glow: rgba(6, 182, 212, 0.25);
+
+/* **Usage:** Information, links, secondary actions, trust elements */
+
+/* ### Interactive Elements */
+
+/* #### **Success & Growth** */
+--success-gradient: linear-gradient(135deg, #10b981, #059669);
+--success-glow: rgba(16, 185, 129, 0.25);
+--success-text: #10b981;
+
+/* **Usage:** Success messages, growth metrics, positive feedback */
+
+/* #### **Warning & Attention** */
+--warning-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+--warning-glow: rgba(245, 158, 11, 0.25);
+--warning-text: #f59e0b;
+
+/* **Usage:** Warnings, pending states, important notices */
+
+/* #### **Error & Critical** */
+--error-gradient: linear-gradient(135deg, #ef4444, #dc2626);
+--error-glow: rgba(239, 68, 68, 0.25);
+--error-text: #ef4444;
+
+/* **Usage:** Error states, destructive actions, critical alerts */
+
+/* ### Content Categories */
+
+/* #### **Music & Entertainment** */
+--music-gradient: linear-gradient(135deg, #4f46e5, #3b82f6);
+--music-accent: #4f46e5;
+--music-bg: rgba(79, 70, 229, 0.1);
+
+
+/* #### **News & Breaking** */
+--news-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+--news-accent: #06b6d4;
+--news-bg: rgba(6, 182, 212, 0.1);
+
+
+/* #### **Live Streaming** */
+--live-gradient: linear-gradient(135deg, #ef4444, #f97316);
+--live-accent: #ef4444;
+--live-glow: rgba(239, 68, 68, 0.4);
+--live-bg: rgba(239, 68, 68, 0.1);
+
+
+/* #### **Growth & Success** */
+--growth-gradient: linear-gradient(135deg, #10b981, #22c55e);
+--growth-accent: #10b981;
+--growth-bg: rgba(16, 185, 129, 0.1);
+
+
+/* ## Advanced Visual Effects
+
+### Glow & Shadow System */
+/* Brand Color Glows */
+--glow-indigo: 0 0 20px rgba(79, 70, 229, 0.3);
+--glow-green: 0 0 20px rgba(16, 185, 129, 0.3);
+--glow-blue: 0 0 20px rgba(59, 130, 246, 0.3);
+--glow-cyan: 0 0 20px rgba(6, 182, 212, 0.3);
+
+/* Interactive Glows */
+--glow-subtle: 0 0 20px rgba(79, 70, 229, 0.15);
+--glow-medium: 0 0 40px rgba(79, 70, 229, 0.25);
+--glow-strong: 0 0 60px rgba(79, 70, 229, 0.4);
+
+/* Context-Aware Glows */
+--glow-success: 0 0 30px rgba(16, 185, 129, 0.3);
+--glow-warning: 0 0 30px rgba(245, 158, 11, 0.3);
+--glow-error: 0 0 30px rgba(239, 68, 68, 0.3);
+--glow-live: 0 0 40px rgba(239, 68, 68, 0.5);
 }
+
+/* ### Animation Gradients */
+/* Shimmer Effect for Premium Elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, #10b981, #4f46e5, #06b6d4, #059669);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Pulse Effect for Live Elements */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8); }
+}
+
+/* Gradient Flow Animation */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.flow-gradient {
+  background: linear-gradient(45deg, #4f46e5, #10b981, #06b6d4, #4f46e5);
+  background-size: 300% 300%;
+  animation: gradient-flow 6s ease infinite;
+}
+
+
+/* ## Component-Specific Colors */
+
+/* ### Navigation & UI Chrome */
+/* Header Gradient */
+.header-gradient {
+  background: linear-gradient(90deg, #4f46e5, #10b981, #3b82f6, #06b6d4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+/* Sidebar Glass Effect */
+.sidebar-glass {
+  background: linear-gradient(180deg, 
+    rgba(15, 23, 42, 0.95), 
+    rgba(0, 0, 0, 0.95)
+  );
+  border-right: 1px solid rgba(107, 114, 128, 0.5);
+  backdrop-filter: blur(16px);
+}
+
+
+/* ### Reusable Components */
+
+/* #### **Button Variants** */
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6, #06b6d4);
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(79, 70, 229, 0.4);
+}
+
+/* Success Button */
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Gift Button */
+.btn-gift {
+  background: linear-gradient(135deg, #f59e0b, #10b981, #22c55e);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Warning Button */
+.btn-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+/* Danger Button */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+
+/* #### **Card Variants** */
+/* Default Card */
+.card-default {
+  background: linear-gradient(135deg, 
+    rgba(30, 41, 59, 0.95), 
+    rgba(0, 0, 0, 0.95)
+  );
+  border: 1px solid rgba(107, 114, 128, 0.5);
+  backdrop-filter: blur(16px);
+}
+
+/* Glass Card */
+.card-glass {
+  background: linear-gradient(135deg, 
+    rgba(30, 41, 59, 0.8), 
+    rgba(0, 0, 0, 0.8)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Highlight Card */
+.card-highlight {
+  background: linear-gradient(135deg, 
+    rgba(79, 70, 229, 0.1), 
+    rgba(16, 185, 129, 0.1)
+  );
+  border: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+/* Elevated Card */
+.card-elevated {
+  background: linear-gradient(135deg, 
+    rgba(30, 41, 59, 0.95), 
+    rgba(0, 0, 0, 0.95)
+  );
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+
+/* #### **Badge Variants** */
+/* Primary Badge */
+.badge-primary {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: white;
+}
+
+/* Success Badge */
+.badge-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+/* Live Badge */
+.badge-live {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+/* Trending Badge */
+.badge-trending {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+
+/* ### Gradient Text Effect */
+.gradient-text-primary {
+  background: linear-gradient(135deg, #4f46e5, #10b981, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.gradient-text-success {
+  background: linear-gradient(135deg, #10b981, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+
+/* ### Glass Morphism Enhanced */
+.glass-card-enhanced {
+  background: linear-gradient(135deg, 
+    rgba(79, 70, 229, 0.1), 
+    rgba(16, 185, 129, 0.05),
+    rgba(0, 0, 0, 0.8)
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(79, 70, 229, 0.1);
+}
+
+
+/* ### Animated Gradient Border */
+.animated-border-primary {
+  position: relative;
+  background: var(--bg-primary);
+  border-radius: 1rem;
+}
+
+.animated-border-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(45deg, #4f46e5, #10b981, #06b6d4, #4f46e5);
+  background-size: 300% 300%;
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: gradient-flow 3s ease infinite;
+}
+
+/* ### Interactive Hover Effects */
+.interactive-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(79, 70, 229, 0.2),
+    0 0 0 1px rgba(79, 70, 229, 0.1);
+}
+
+.interactive-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.interactive-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.interactive-button:hover::before {
+  left: 100%;
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -19,8 +478,42 @@
   }
 }
 
+
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animation Gradients */
+/* Shimmer Effect for Premium Elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, #10b981, #4f46e5, #06b6d4, #059669);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Pulse Effect for Live Elements */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8); }
+}
+
+/* Gradient Flow Animation */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.flow-gradient {
+  background: linear-gradient(45deg, #4f46e5, #10b981, #06b6d4, #4f46e5);
+  background-size: 300% 300%;
+  animation: gradient-flow 6s ease infinite;
 }
