@@ -5,7 +5,7 @@ import Button from "./ui/Button";
 
 import { useState } from "react";
 import { Card } from "./ui/Card/Card";
-// import PostCard from "./PostCard";
+import PostCard from "./PostCard";
 
 
 
@@ -105,9 +105,9 @@ const HomePage = () => {
 
         {/* Posts Feed */}
          <div className="space-y-8">
-          {/* {posts.map(post => (
+          {posts.map(post => (
             <PostCard key={post.id} post={post} />
-          ))} */}
+          ))}
         </div> 
       </div>
     </div>

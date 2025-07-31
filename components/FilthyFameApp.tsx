@@ -6,6 +6,8 @@ import HomePage from '@/components/Homepage';
 // import ProfilePage from '@/components/ProfilePage.tsx';
 import TrendingPage from '@/components/TrendingPage';
 import NetworkingPage from '@/components/NetworkPage';
+import LiveStreamPage from './LiveStreamPage';
+import ProfilePage from './ProfilePage.tsx';
 
 // Main App Component with Indigo/Green Color Scheme
 const FilthyFameApp = () => {
@@ -20,12 +22,12 @@ const FilthyFameApp = () => {
         return <HomePage />;
       case 'trending':
         return <TrendingPage />;
-      // case 'live':
-      //   return <LiveStreamPage isStreaming={isLiveStreaming} setIsStreaming={setIsLiveStreaming} />;
+      case 'live':
+        return <LiveStreamPage isStreaming={isLiveStreaming} setIsStreaming={setIsLiveStreaming} />;
       case 'network':
         return <NetworkingPage />;
-      // case 'profile':
-      //   return <ProfilePage user={undefined} />;
+      case 'profile':
+        return <ProfilePage user={undefined} />;
       default:
         return <HomePage />;
     }
