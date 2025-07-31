@@ -1,9 +1,21 @@
-import React from "react";
+'use client'
 
+import React from 'react'
+import { Button } from '@/components/ui/Button'
 
+interface User {
+  id?: string
+  displayName?: string
+  username?: string
+  avatar?: string
+  coins?: number
+}
 
-// Profile Page
-const ProfilePage = ({ user }) => (
+interface ProfilePageProps {
+  user?: User | null
+}
+
+const ProfilePage = ({ user }: ProfilePageProps) => (
   <div className="p-4">
     <div className="max-w-4xl mx-auto">
       <div className="bg-gray-900/90 border border-gray-700/50 rounded-2xl p-8 backdrop-blur">
@@ -19,9 +31,9 @@ const ProfilePage = ({ user }) => (
               <span className="text-transparent bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text font-bold">842 Following</span>
             </div>
           </div>
-          <button className="bg-gradient-to-r from-indigo-500 to-emerald-500 hover:from-indigo-600 hover:to-emerald-600 px-6 py-3 rounded-xl font-bold transition-all">
+          <Button variant="primary">
             Edit Profile
-          </button>
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -41,5 +53,6 @@ const ProfilePage = ({ user }) => (
       </div>
     </div>
   </div>
-);
-export default ProfilePage;
+)
+
+export default ProfilePage

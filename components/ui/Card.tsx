@@ -1,8 +1,15 @@
 import React from 'react'
 
+interface CardProps {
+  variant?: 'default' | 'glass' | 'elevated' | 'highlight';
+  className?: string;
+  children: React.ReactNode;
+  hover?: boolean;
+  [key: string]: unknown;
+}
 
 // Reusable Card Component
-const Card = ({ 
+const Card: React.FC<CardProps> = ({ 
   variant = 'default' ,
   className = '', 
   children, 
@@ -22,7 +29,7 @@ const Card = ({
   
   return (
     <div 
-      className={`${baseClasses} ${variantClasses[glass]} ${hoverClasses} ${className}`}
+      className={`${baseClasses} ${variantClasses[variant]} ${hoverClasses} ${className}`}
       {...props}
     >
       {children}

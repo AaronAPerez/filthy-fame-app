@@ -1,3 +1,5 @@
+import { supabase } from "../supabase"
+
 // lib/utils/cache.ts
 const cache = new Map()
 

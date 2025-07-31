@@ -1,37 +1,41 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import React from 'react'
 
-const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
-        success:
-          "border-transparent bg-green-500 text-white hover:bg-green-600"
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
+interface BadgeProps {
+  variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'success' | 'primary' | 'live'
+  size?: 'sm' | 'md' | 'lg'
+  children: React.ReactNode
+  className?: string
+}
+
+export const Badge: React.FC<BadgeProps> = ({ 
+  variant = 'default', 
+  size = 'md',
+  children, 
+  className = '' 
+}) => {
+  const baseClasses = 'inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2'
+  
+  const variantClasses = {
+    default: 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80',
+    secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
+    destructive: 'border-transparent bg-red-500 text-white hover:bg-red-600',
+    outline: 'text-foreground border-gray-300',
+    success: 'border-transparent bg-green-500 text-white hover:bg-green-600',
+    primary: 'border-transparent bg-indigo-500 text-white hover:bg-indigo-600',
+    live: 'border-transparent bg-red-500 text-white hover:bg-red-600 animate-pulse'
   }
-)
-
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
-
-function Badge({ className, variant, ...props }: BadgeProps) {
+  
+  const sizeClasses = {
+    sm: 'px-2 py-0.5 text-xs',
+    md: 'px-2.5 py-0.5 text-xs',
+    lg: 'px-3 py-1 text-sm'
+  }
+  
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}>
+      {children}
+    </div>
   )
 }
 
-export { Badge, badgeVariants }
+export default Badge
