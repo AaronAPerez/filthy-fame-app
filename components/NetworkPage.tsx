@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./ui/Button";
-import Card from "./ui/Card";
+import { Card } from "./ui";
 
 
 // Networking Page
@@ -16,7 +16,7 @@ const NetworkingPage = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card variant="elevated" className="p-8">
+          <Card className="p-8">
             <h2 className="text-2xl font-bold text-white mb-6">Suggested Connections</h2>
             <div className="space-y-6">
               {[
@@ -43,7 +43,8 @@ const NetworkingPage = () => {
             </div>
           </Card>
 
-          <Card variant="elevated" className="p-8">
+          <Card className="p-8">
+          {/* <Card variant="elevated" className="p-8"> */}
             <h2 className="text-2xl font-bold text-white mb-6">Industry Events</h2>
             <div className="space-y-6">
               {[
@@ -51,7 +52,7 @@ const NetworkingPage = () => {
                 { name: 'Creator Conference', date: 'April 2', variant: 'primary' },
                 { name: 'Industry Mixer', date: 'April 20', variant: 'success' }
               ].map((event) => (
-                <Card key={event.name} variant="glass" className="p-6 border-gray-600/50 hover:border-gray-500 transition-colors">
+                <Card key={event.name} className="p-6 border-gray-600/50 hover:border-gray-500 transition-colors">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-bold text-white text-lg mb-1">{event.name}</h3>

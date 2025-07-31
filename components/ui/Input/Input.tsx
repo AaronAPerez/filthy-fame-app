@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/supabase/utils/utils"
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
@@ -13,6 +13,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
  */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, label, error, helper, id, ...props }, ref) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inputId = id || React.useId()
     const errorId = error ? `${inputId}-error` : undefined
     const helperId = helper ? `${inputId}-helper` : undefined

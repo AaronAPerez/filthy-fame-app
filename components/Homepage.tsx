@@ -2,15 +2,17 @@
 
 import { Camera, Mic, Gift } from "lucide-react";
 import Button from "./ui/Button";
-import Card from "./ui/Card";
+
 import { useState } from "react";
-import PostCard from "./PostCard";
+import { Card } from "./ui/Card/Card";
+// import PostCard from "./PostCard";
 
 
 
 
 // Home Page with new components
 const HomePage = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [posts] = useState([
     {
       id: 1,
@@ -60,7 +62,7 @@ const HomePage = () => {
     <div className="p-8 bg-gradient-to-b from-gray-950/50 to-black/50">
       <div className="max-w-4xl mx-auto">
         {/* Create Post Section */}
-        <Card variant="glass" className="p-8 mb-8 shadow-2xl">
+        <Card className="p-8 mb-8 shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/5 via-emerald-600/5 to-cyan-600/5"></div>
           
           <div className="flex items-center space-x-4 mb-6 relative z-10">
@@ -103,9 +105,9 @@ const HomePage = () => {
 
         {/* Posts Feed */}
          <div className="space-y-8">
-          {posts.map(post => (
+          {/* {posts.map(post => (
             <PostCard key={post.id} post={post} />
-          ))}
+          ))} */}
         </div> 
       </div>
     </div>

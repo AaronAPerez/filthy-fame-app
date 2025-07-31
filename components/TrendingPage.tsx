@@ -1,7 +1,7 @@
 import { Play, Badge, Heart } from "lucide-react";
 import React from "react";
 import Button from "./ui/Button";
-import Card from "./ui/Card";
+import { Card } from "./ui";
 
 // Trending Page
 
@@ -20,7 +20,8 @@ const TrendingPage = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map(i => (
-            <Card key={i} hover={true} variant="elevated">
+            <Card key={i}>
+            {/* <Card key={i} hover={true} variant="elevated"> */}
               <div className="aspect-video bg-gradient-to-br from-indigo-900 via-blue-900 to-cyan-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-cyan-600/20 animate-pulse"></div>
                 <div className="absolute inset-0 flex items-center justify-center">

@@ -3,9 +3,7 @@
 import React, { useState } from 'react';
 import { Users, Video, Search, Bell, User, Home, TrendingUp, DollarSign } from 'lucide-react';
 import HomePage from '@/components/Homepage';
-// import LiveStreamPage from '@/components/LiveStreamPage';
-// import NetworkingPage from '@/components/NetworkPage';
-import ProfilePage from '@/components/ProfilePage.tsx';
+// import ProfilePage from '@/components/ProfilePage.tsx';
 import TrendingPage from '@/components/TrendingPage';
 import NetworkingPage from '@/components/NetworkPage';
 
@@ -26,8 +24,8 @@ const FilthyFameApp = () => {
       //   return <LiveStreamPage isStreaming={isLiveStreaming} setIsStreaming={setIsLiveStreaming} />;
       case 'network':
         return <NetworkingPage />;
-      case 'profile':
-        return <ProfilePage user={undefined} />;
+      // case 'profile':
+      //   return <ProfilePage user={undefined} />;
       default:
         return <HomePage />;
     }
