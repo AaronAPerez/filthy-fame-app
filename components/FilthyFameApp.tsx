@@ -6,6 +6,7 @@ import HomePage from '@/components/Homepage';
 // import ProfilePage from '@/components/ProfilePage.tsx';
 import TrendingPage from '@/components/TrendingPage';
 import NetworkingPage from '@/components/NetworkPage';
+import ProfilePage from './ProfilePage.tsx';
 
 // Main App Component with Indigo/Green Color Scheme
 const FilthyFameApp = () => {
@@ -24,8 +25,8 @@ const FilthyFameApp = () => {
       //   return <LiveStreamPage isStreaming={isLiveStreaming} setIsStreaming={setIsLiveStreaming} />;
       case 'network':
         return <NetworkingPage />;
-      // case 'profile':
-      //   return <ProfilePage user={undefined} />;
+      case 'profile':
+        return <ProfilePage user={undefined} />;
       default:
         return <HomePage />;
     }
@@ -40,13 +41,13 @@ const FilthyFameApp = () => {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <h1 className="text-3xl font-black bg-gradient-to-r from-white via-black to-gray-600 bg-clip-text text-transparent tracking-tight">
+              <h1 className="text-3xl font-black bg-gradient-to-r from-black via-indigo-800 to-black bg-clip-text text-transparent tracking-tight">
                 FILTHY FAME
               </h1>
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-lg blur opacity-30 animate-pulse"></div>
             </div>
             <span className="text-xs bg-gradient-to-r from-emerald-400 to-cyan-400 px-3 py-1.5 rounded-full text-white font-bold shadow-lg animate-shimmer">
-              ZEUS SISTER CO.
+              ENTERTAINMENT.
             </span>
           </div>
           
@@ -89,7 +90,7 @@ const FilthyFameApp = () => {
               className={`px-6 py-3 rounded-2xl font-bold transition-all shadow-lg ${
                 isLiveStreaming 
                   ? 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 animate-pulse shadow-red-500/50' 
-                  : 'bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 hover:from-indigo-700 hover:via-blue-700 hover:to-cyan-600 shadow-indigo-500/25'
+                  : 'bg-gradient-to-r from-indigo-600 via-blue-600 to-red-500 hover:from-indigo-700 hover:via-blue-700 hover:to-cyan-600 shadow-indigo-500/25'
               }`}
             >
               {isLiveStreaming ? '🔴 LIVE NOW' : '📹 GO LIVE'}
